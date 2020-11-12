@@ -12,8 +12,8 @@ from new.protobuf.data import Data, arr2bytes
 if __name__ == '__main__':
 
     context = zmq.Context()
-    socket = context.socket(zmq.REQ)
-    socket.connect("tcp://127.0.0.1:5000")
+    socket = context.socket(zmq.REP)
+    socket.bind("tcp://*:5000")
 
     env = AtariEnv('PongNoFrameskip-v4', 4)
 

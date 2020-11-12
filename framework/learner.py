@@ -20,8 +20,8 @@ if __name__ == '__main__':
     dqn_agent.policy_model.model.compile(loss='huber_loss', optimizer=opt)
     
     context = zmq.Context()
-    socket = context.socket(zmq.REP)
-    socket.bind("tcp://*:5000")
+    socket = context.socket(zmq.REQ)
+    socket.connect("tcp://127.0.0.1:5000")
 
     batch_size = 32
     num_steps = 1000000
